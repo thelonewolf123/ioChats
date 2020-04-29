@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ioChats</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container m-4" id="login-area">
+        <input type="text" class="form-control" id="username">
+        <button class="btn btn-primary mt-2" id="login">
+            Login
+        </button>
+    </div>
+
+    <div class="container mt-4" id="chat-area">
+        <div class="row">
+            <div class="col well">
+                <h4 class="text-center">
+                    Online users
+                </h4>
+
+                <div class="list-group" id="online">
+                </div>
+            </div>
+            <div class="col">
+                <div class="container inline-form">
+                    <input type="text" id="message" class="form-control">
+                    <button class="btn btn-primary mt-2" id="send">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container list-group m-4" id="messages">
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../javascript/index.js"></script>
+</body>
+
+</html>
