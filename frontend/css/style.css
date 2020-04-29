@@ -1,0 +1,39 @@
+#online_col{
+    background-color: rgb(185, 185, 185);
+    padding: 10px;
+    border-radius: 3px;
+}
+
+#online-label{
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic bold;
+}
+
+.social {
+    margin: 5px;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+}
+
+.social :hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.copyright {
+    color: #fff;
+    margin-top: 20px;
+}
+
+.footer {
+    margin-top: 100px;
+    padding: 10px;
+}
+
+#messages {
+    background-color: rgb(85, 220, 238);
+    padding: 30px;
+    border-radius: 7px;
+}

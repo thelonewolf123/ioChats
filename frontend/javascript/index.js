@@ -6,6 +6,7 @@ const online = document.getElementById('online');
 const username = document.getElementById('username');
 
 document.getElementById('chat-area').style.visibility = 'hidden';
+document.getElementById('online_col').style.visibility = 'hidden';
 
 login.addEventListener('click', (event) => {
 
@@ -13,6 +14,7 @@ login.addEventListener('click', (event) => {
 
     document.getElementById('login-area').style.visibility = 'hidden';
     document.getElementById('chat-area').style.visibility = 'visible';
+    document.getElementById('online_col').style.visibility = 'visible';
 
     const socket = io.connect();
 
@@ -22,16 +24,24 @@ login.addEventListener('click', (event) => {
 
     send.addEventListener('click', (event) => {
         // console.log('Send button is clicked');
-        socket.emit('sendMessage', {
-            msg: message.value
-        });
+        if (userid !== '') {
+            socket.emit('sendMessage', {
+                msg: message.value
+            });
+        }
         message.value = '';
     });
 
     socket.on('newMessage', (data => {
         const msg = document.createElement('div');
         msg.classList.add('list-group-item');
-        msg.innerHTML = data.user.userid + ' : ' + data.msg;
+        if(userid===data.user.userid){
+            msg.classList.add('text-right');
+            msg.innerHTML = data.msg;
+        }
+        else{
+        msg.innerHTML =` <strong>${ data.user.userid }</strong> : ${data.msg}`;
+        }
         chat.appendChild(msg);
     }));
 

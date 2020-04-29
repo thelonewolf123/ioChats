@@ -7,10 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ioChats</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body style=" background-color: rgb(240, 209, 171);">
+    <div class="navbar navbar-dark bg-dark">
+        <a class="navbar navbar-brand" style="color: white;">
+        ioChats
+        </a>
+    </div>
 
+    <div style="height: 20px;"></div>
     <div class="container m-4" id="login-area">
         <input type="text" class="form-control" id="username">
         <button class="btn btn-primary mt-2" id="login">
@@ -20,8 +28,8 @@
 
     <div class="container mt-4" id="chat-area">
         <div class="row">
-            <div class="col well">
-                <h4 class="text-center">
+            <div class="col well" id="online_col">
+                <h4 class="text-center" id="online-label">
                     Online users
                 </h4>
 
@@ -41,6 +49,21 @@
 
     <div class="container list-group m-4" id="messages">
 
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <div class='footer footer-dark bg-dark text-center' style="color: white;">
+        <footer>
+            <div class="form inline-form">
+                <a href="#facebook" class="social"><i class="fa fa-facebook"></i> </a>
+                <a href="#instagram" class="social"><i class="fa fa-instagram"></i> </a>
+                <a href="#telegram" class="social"><i class="fa fa-telegram"></i> </a>
+            </div>
+            <div class='copyright text-center'>
+                &copy; ioChats - 2020
+            </div>
+        </footer>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="../javascript/index.js"></script>

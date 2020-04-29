@@ -19,6 +19,10 @@ app.get('/css/bootstrap.min.css', (req, res) => {
     res.sendFile(frontend + '/css/bootstrap.min.css')
 });
 
+app.get('/css/style.css', (req, res) => {
+    res.sendFile(frontend + '/css/style.css')
+});
+
 app.get('/javascript/index.js', (req, res) => {
     res.sendFile(frontend + '/javascript/index.js')
 });
@@ -30,8 +34,9 @@ io.sockets.on('connection', (socket) => {
 
     socket.on('disconnect', (data) => {
         if (!socket.username) return;
-        connections.splice(connections.indexOf(socket), 1);
+        connections.splice(users.indexOf(socket.username), 1);
         users.splice(users.indexOf(socket.username), 1);
+        //console.log(users,connections);
         updateUsers();
         console.log('Connected users : %s', connections.length);
     });
@@ -43,8 +48,7 @@ io.sockets.on('connection', (socket) => {
         });
     });
 
-    socket.on('newUser', (data, callback) => {
-        callback(true);
+    socket.on('newUser', (data) => {
         socket.username = data
         users.push(socket.username);
         console.log(users);
@@ -52,6 +56,10 @@ io.sockets.on('connection', (socket) => {
     });
 
     const updateUsers = () => {
+        socket.broadcast.emit('getUsers', {
+            users: users
+        });
+
         socket.emit('getUsers', {
             users: users
         });
