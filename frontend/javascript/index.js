@@ -40,7 +40,7 @@ login.addEventListener('click', (event) => {
             msg.innerHTML = data.msg;
         }
         else{
-        msg.innerHTML =` <strong>${ data.user.userid }</strong> : ${data.msg}`;
+        msg.innerHTML =`<strong>${ data.user.userid }</strong> : ${data.msg}`;
         }
         chat.appendChild(msg);
     }));
@@ -51,6 +51,9 @@ login.addEventListener('click', (event) => {
         for (const user of data.users) {
             const new_user = document.createElement('div');
             new_user.classList.add('list-group-item');
+            if(userid === user.userid){
+                new_user.classList.add('active');
+            }
             new_user.id = user.userid;
             new_user.innerHTML = user.userid;
             online.appendChild(new_user);
