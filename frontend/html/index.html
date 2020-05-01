@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body style="background-color: rgb(240, 209, 171);">
+<body style="background-color: darkcyan;">
     <div class="navbar navbar-dark bg-dark">
         <a class="navbar navbar-brand" style="color: white;">
             ioChats
@@ -26,30 +26,28 @@
         </button>
     </div>
 
-    <div class="container mt-4" id="chat-area">
+    <div class="container m-4" id="chat-area">
         <div class="row">
-            <div class="col well" id="online_col">
-                <h4 class="text-center" id="online-label">
-                    Online users
-                </h4>
-
-                <div class="list-group" id="online">
+            <div class="col-md-4" id="online_col">
+                <div id="online-group">
+                    <h4 class="text-center" id="online-label">
+                        Online users
+                    </h4>
+    
+                    <div class="list-group" id="online">
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="container inline-form">
+            <div class="col-md-8" id="chat-group">
+                
+                <div class="container inline-form" id="chats">
+                    <div class="container list-group" id="messages">
+                    </div>
                     <input type="text" id="message" class="form-control">
                     <button class="btn btn-primary mt-2" id="send">
-                        Send
+                        Send Message
                     </button>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <div class="container list-group m-4" id="messages">
             </div>
         </div>
     </div>

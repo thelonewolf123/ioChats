@@ -27,6 +27,10 @@ app.get('/javascript/index.js', (req, res) => {
     res.sendFile(frontend + '/javascript/index.js')
 });
 
+app.get('/background.jpg', (req, res) => {
+    res.sendFile(frontend + '/background.jpg')
+});
+
 io.sockets.on('connection', (socket) => {
 
     connections.push(socket);
