@@ -3,33 +3,12 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 
-const frontend = '../frontend';
 const connections = [];
 const users = [];
 
 server.listen(process.env.PORT || 3000);
 
-app.get('/', (req, res) => {
-    console.log('Server is running...,');
-    res.sendFile(frontend + '/html/index.html');
-});
-
-
-app.get('/css/bootstrap.min.css', (req, res) => {
-    res.sendFile(frontend + '/css/bootstrap.min.css')
-});
-
-app.get('/css/style.css', (req, res) => {
-    res.sendFile(frontend + '/css/style.css')
-});
-
-app.get('/javascript/index.js', (req, res) => {
-    res.sendFile(frontend + '/javascript/index.js')
-});
-
-app.get('/background.jpg', (req, res) => {
-    res.sendFile(frontend + '/background.jpg')
-});
+app.use(express.static('public'))
 
 io.sockets.on('connection', (socket) => {
 
