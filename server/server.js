@@ -8,7 +8,7 @@ const users = [];
 
 server.listen(process.env.PORT || 3000);
 
-app.use(express.static('public'))
+app.use(express.static('frontend'))
 
 io.sockets.on('connection', (socket) => {
 
