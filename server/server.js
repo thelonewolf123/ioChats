@@ -3,7 +3,7 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 
-const frontend = '/home/cyberhunter/Projects/node/ioChats/frontend';
+const frontend = '../frontend';
 const connections = [];
 const users = [];
 
