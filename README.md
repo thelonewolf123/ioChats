@@ -1,2 +1,2 @@
 # ioChats
-Simple chat app using socketio
+Simple chat app using socket.io
